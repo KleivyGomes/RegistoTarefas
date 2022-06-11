@@ -1,5 +1,6 @@
 const db = require('../config/db')
 
+// configurando modificadores da base de dados
 class Post {
     constructor(usuario, password, user) {
         this.usuario = usuario;

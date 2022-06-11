@@ -17,7 +17,11 @@ router.get('/tarefas', async (req, res) => {
 })
 
 router.get('/tarefas/add', (req, res) => {
-    res.render('admin/addtarefa')
+    if(req.session.logged){
+        res.render('admin/addtarefa')
+    }else{
+        res.redirect('/')
+    }
 })
 router.get('/add', (req, res) => {
     res.render('admin/adduser')
@@ -138,16 +142,26 @@ router.post('/login', async (req, res) => {
 })
 
 router.get('/tarefas/edit/:id', async (req, res) => {
-    [Tarefa, _] = await Post.findOnet('id_tarefa', req.params.id)
-    res.render('admin/editarefa', { tarefa: Tarefa })
+    if(req.session.logged){
+        [Tarefa, _] = await Post.findOnet('id_tarefa', req.params.id)
+        res.render('admin/editarefa', { tarefa: Tarefa })
+    }else{
+        res.redirect('/')
+    }
+
+    
 })
 router.post('/tarefas/confirmedit', (req, res) => {
     res.redirect('/user/tarefas')
 })
 
 router.get('/tarefas/delete/:id', (req, res) => {
-
-    res.render('admin/deletetarefa', { id: req.params.id })
+    if(req.session.logged){
+        res.render('admin/deletetarefa', { id: req.params.id })
+    }else{
+        res.redirect('/')
+    }
+    
 })
 router.post('/tarefas/delete/confirm', async (req, res) => {
     await Post.DeleteOne('lista_de_tarefas', 'id_tarefa', req.body.id)

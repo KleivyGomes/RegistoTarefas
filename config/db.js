@@ -1,6 +1,7 @@
 require("dotenv").config()
 const mysql = require('mysql2')
 
+//Configurar acesso a base de dados
 const pool = mysql.createPool({
     host: process.env.DB_host,
     user: process.env.DB_user,

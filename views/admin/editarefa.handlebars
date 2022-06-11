@@ -1,3 +1,4 @@
+<br>
 <h3>Editar Tarefa</h3>
 {{#each tarefa}}
     <div class="card">
@@ -14,6 +15,7 @@
                 <input type="text" id="data" name="data" placeholder="----/--/--" class="form-control me-2">
                 <button type="submit" class="btn btn-success mt-4">Confirmar edição</button>
             </form>
+            <a href="/user/tarefas"><button type="submit" class="btn btn-danger mt-4">Cancelar edição</button></a>
         </div>
     </div>
 {{else}}

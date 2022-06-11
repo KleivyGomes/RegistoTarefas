@@ -7,18 +7,17 @@ const admin = require('./routes/admin')
 const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
-
-
-
+require("dotenv").config()
 
 //configurações
     //session
         app.use(session({
-            secret: 'k14s14g14',
+            secret: process.env.SECRETKEY,
             resave: true,
             saveUninitialized: true
         }))
         app.use(flash())
+
     //Midleware
         app.use((req,res,next)=>{
             res.locals.success_msg = req.flash("success_msg")
@@ -26,25 +25,26 @@ const flash = require('connect-flash')
             next()
         })
     //bodyParse
+
         app.use(bodyParse.urlencoded({extended: true}))
         app.use(bodyParse.json())
+
     //handlebars
         app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
         app.set('view engine','handlebars')
-    //mysql
-        //em breve
+
     //Public
         app.use(express.static(path.join(__dirname,'public')))
-//Rotas
-    
-    app.use('/user',admin)
-    app.get('/',(req,res)=>{
-        req.session.user = 'User'
-        req.session.logged = false
-        res.render('admin/login')
-    })
-//Outros
-const port = 8081
-app.listen(port,()=>{ 
-    console.log('Servidor Rodando')
-})
+    //Rotas
+        
+        app.use('/user',admin)
+        app.get('/',(req,res)=>{
+            req.session.user = 'User'
+            req.session.logged = false
+            res.render('admin/login')
+        })
+    //Outros
+        const port = process.env.PORT
+        app.listen(port,()=>{ 
+            console.log('Servidor Rodando')
+        })
