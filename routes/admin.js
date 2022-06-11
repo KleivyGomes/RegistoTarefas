@@ -54,7 +54,6 @@ router.post('/tarefas/nova', async (req, res) => {
     if (erros.length > 0) {
         res.render("admin/addtarefa", { erros: erros })
     } else {
-        console.log('Usuario criado')
         let post = new Post()
         await post.savet('1', req.body.name, req.body.descricao, req.body.data)
         req.flash("success_msg", "Tarefa criada com sucesso")
