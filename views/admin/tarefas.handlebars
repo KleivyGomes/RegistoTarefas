@@ -1,0 +1,27 @@
+<div class="card border-3 p-4 shadow">
+    <h2>Lista de Tarefas:</h2>
+    <hr>
+    <a href="/user/tarefas/add"><button class="btn btn-success">Adicionar Tarefa</button></a>
+
+    <div>
+
+        {{#each Tarefas}}
+
+        <div class="card border-2 p-3 shadow mt-3">
+            <h4>{{Nome_tarefa}}</h4>
+            <hr>
+            <strong>{{Descricao}}</Strong>
+            <h7>{{data_tarefa}}</h7>
+            <div>
+                <a href="/user/tarefas/edit/{{id_tarefa}}"><button type="submit"
+                        class="btn btn-success mx-2 mt-3">Editar</button></a>
+                <a href="/user/tarefas/delete/{{id_tarefa}}"><button type="submit"
+                        class="btn btn-danger mx-2 mt-3">Eliminar</button></a>
+            </div>
+        </div>
+        {{else}}
+        <div class="card border-2 p-3 shadow mt-3">Não tem tarefas ainda.</div>
+        {{/each}}
+
+    </div>
+</div>

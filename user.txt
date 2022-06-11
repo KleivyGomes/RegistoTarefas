@@ -1,0 +1,7 @@
+user
+- login
+- registar
+- criar tarefa(nome,descrição, data)
+- atualizar tarefa
+- apagar tarefa
+- listar tarefas

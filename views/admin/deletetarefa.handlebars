@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-3 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <form action="/user/tarefas/delete/confirm" method="post">
+                        <h4 class="text-primary">Tem certeza que quer remover a sua Tarefa?</h4>
+                        <input type="hidden" name="id" value="{{id}}">
+                        <p class="mt-3">* Isso irá apagar a sua tarefa permanentemente!</p>
+                        <button type="submit" class="btn btn-success form-control">Confirmar</button>
+                    </form>
+                    <a href="/user/tarefas"><button type="submit" class="btn btn-danger mt-3 form-control">Cancelar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

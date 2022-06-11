@@ -1,0 +1,20 @@
+<h3>Editar Tarefa</h3>
+{{#each tarefa}}
+    <div class="card">
+        <div class="card-body">
+            <form action="/user/tarefas/confirmedit" method="POST">
+                <input type="hidden" name="id_tarefa"  value="{{id_tarefa}}">
+                <input type="hidden" name="user_id" value="{{user_id}}">
+                <label for="nome">Nome da tarefa:</label>
+                <input type="text" id="nome" name="name" placeholder="Nome da tarefa" class="form-control" value="{{Nome_tarefa}}">
+                <label for="slug">Descrição:</label>
+                <textarea type="text" rows="7" id="descricao" name="descricao" placeholder="Descrição da tarefa"
+                    class="form-control ">{{Descricao}}</textarea>
+                <label for="slug">Data:</label>
+                <input type="text" id="data" name="data" placeholder="----/--/--" class="form-control me-2">
+                <button type="submit" class="btn btn-success mt-4">Confirmar edição</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+{{/each}}
