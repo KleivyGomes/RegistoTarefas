@@ -8,9 +8,24 @@
     "express-handlebars": "^6.0.5",
     "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
-    "mysql2": "^2.3.3",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.19.0"
-  }
+    "mysql2": "^2.3.3"
+  },
+  "name": "express",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KleivyGomes/RegistoTarefas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KleivyGomes/RegistoTarefas/issues"
+  },
+  "homepage": "https://github.com/KleivyGomes/RegistoTarefas#readme",
+  "description": ""
 }
